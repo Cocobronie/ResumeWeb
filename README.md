@@ -31,8 +31,7 @@
 ![image](https://github.com/Cocobronie/ResumeWeb/blob/main/ReadmeImage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-12-05%20124158.png)
 
 ### 8、**修改页面可编辑**项目经历，提供相应的添加、删除、修改操作支持
-![image](https://github.com/Cocobronie/ResumeWeb/blob/main/ReadmeImage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-12-05%20124211.png)
 ![image](https://github.com/Cocobronie/ResumeWeb/blob/main/ReadmeImage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-12-05%20124238.png)
 
 ### 9、**修改页面**支持更改照片
-![image]()
+![image](https://github.com/Cocobronie/ResumeWeb/blob/main/ReadmeImage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-12-05%20124211.png)
