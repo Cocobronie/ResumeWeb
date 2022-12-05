@@ -7,7 +7,7 @@
 ![image](https://github.com/Cocobronie/ResumeWeb/blob/main/ReadmeImage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-12-05%20123712.png)
 
 ### 2、支持网页访问计数
-![image](![image](https://github.com/Cocobronie/ResumeWeb/blob/main/ReadmeImage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-12-05%20123712.png))
+![image](![image](https://github.com/Cocobronie/ResumeWeb/blob/main/ReadmeImage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-12-05%20123712.png)
 
 ### 3、在合适的位置放置编辑链接
 ![image](https://github.com/Cocobronie/ResumeWeb/blob/main/ReadmeImage/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-12-05%20123913.png)
