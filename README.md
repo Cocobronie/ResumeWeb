@@ -1,6 +1,11 @@
 # Resume 开发笔记
+
+**详细介绍请移步我的博客：https://www.cocobronie.cn/**
+
 使用技术 ： JS+html+Css+Java
+
 开发工具 ： IEAD+tomcat+Microsoft Eadge
+
 # 主要功能
 
 ### 1、显示当天天气预报
