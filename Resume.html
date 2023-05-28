@@ -1,0 +1,351 @@
+<html>
+<head>
+  <title>孙希婷的个人网站</title>
+  <link rel="shortcut icon" href="image/02_headshot.jpg">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="02HTML_CSS.css">
+  <!-- 引入jquery 用于JavaScript读取json文件-->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="03JavaScript.js" defer charset="UTF-8"></script>
+</head>
+
+<body onload="getUsers()">
+<div class="container">
+
+  <header>
+    <!-- 头像 -->
+    <div class="portrait">
+      <img class="author-img" id="preview-img" src="image/02_headshot.jpg" alt="图片走丢啦~~~~" />
+      <div class="imagebtn" id="changeimg" style="display: none">
+        <input type="file" class="btnfile" onchange="previewHandle(this)">
+      </div>
+    </div>
+    <script >
+      function previewHandle(fileDOM) {
+        var file = fileDOM.files[0], // 获取文件
+                imageType = /^image\//,
+                reader = ""; // 文件是否为图片
+
+        if (!imageType.test(file.type)) {
+          alert("请选择图片！");
+          return;
+        } // 判断是否支持 FileReader
+        if (window.FileReader) {
+          reader = new FileReader();
+        } // IE9及以下不支持 FileReader
+        else {
+          alert("您的浏览器不支持图片预览功能，如需该功能请升级您的浏览器！");
+          return;
+        } // 读取完成
+        reader.onload = function(event) {
+          // 获取图片DOM
+          var img = document.getElementById("preview-img"); // 图片路径设置为读取的图片
+          img.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    </script>
+
+    <!-- 名字显示 -->
+    <div class="name-wrapper">
+      <div id="fullname" class="title">
+        孙希婷
+      </div>
+
+      <div id="jobtitle" class="sub-title">
+        超级富婆
+      </div>
+    </div>
+
+    <!-- 天气显示 -->
+    <div class="weather-show">
+      <div>
+        <img class="weather-img" src="image/weather.jpg" alt="图片走丢啦~~~~" />
+      </div>
+
+      <div class="weather-item">
+        <label id="lblCity">--</label>
+        <label id="lblWeather">--</label>
+        <label id="lblTemperature">--</label>
+        <label id="lblTime">--</label>
+      </div>
+    </div>
+
+    <!-- 细节信息 -->
+    <div id="contact" class="contact">
+      <div class="contact-item">
+        邮箱
+      </div>
+
+      <div class="contact-item" id="email">
+        161717572@qq.com
+
+      </div>
+
+      <div class="contact-item" id="emaildiv" style="display: none">
+        <input id ="email1" type="text" placeholder="161717572@qq.com" class="list-input"/>
+      </div>
+
+      <div class="contact-item" >
+        电话
+      </div>
+
+      <div class="contact-item" id="Tel">
+        177777777777
+      </div>
+
+      <div class="contact-item" id="Teldiv" style="display: none">
+        <input id ="Tel1" type="text" placeholder="177777777777" class="list-input"/>
+      </div>
+
+      <script>
+        var emailLocal = localStorage.getItem("emailkey");          // 读取存储变量名为key的值
+        var TelLocal = localStorage.getItem("Telkey");
+        var emailin = document.getElementById("email1");
+        var telin = document.getElementById("Tel1");
+        var emailobj = document.getElementById("email");
+        var telobj = document.getElementById("Tel");
+        emailobj.innerHTML=emailLocal;
+        telobj.innerHTML=TelLocal;
+        emailin.setAttribute("placeholder", emailLocal);
+        telin.setAttribute("placeholder", TelLocal);
+      </script>
+
+      <div class="contact-item">
+        github
+      </div>
+
+      <div class="contact-item">
+        <a href="https://github.com/Cocobronie" target="_blank" rel="noopener">
+          <i>github</i>
+        </a>
+      </div>
+    </div>
+
+    <!-- 弹出登录框按钮 -->
+    <div id="login-header" href="javascript:void(0)">
+      <a id="adminBtn" href="javascript:void(0)">编辑</a>
+    </div>
+
+    <!-- 登录框主体 -->
+    <div id="login" class="login">
+      <!-- 登录框标题 -->
+      <div id="login-title" class="login-title">
+        管理员登录
+      </div>
+      <!-- 登录框表单 -->
+      <div id="login-form">
+        <div class="login-input">
+          <label>登录名：</label>
+          <input id ="UsernameInput" type="text" placeholder="请输入登录名" class="list-input"/>
+        </div>
+
+        <div class="login-input">
+          <label>密   码：</label>
+          <input id ="PasswordInput" type="password" placeholder="请输入密码" class="list-input" />
+        </div>
+      </div>
+
+      <div class="Btns">
+        <!-- 登陆框登陆按钮 -->
+        <button type="button" id="loginSubmit" value="登录" class="loginSubmit" onclick="getUsers()">登录</button>
+
+        <!-- 登陆框关闭按钮 -->
+        <button id="closeBtn" href="javascript:void(0)">关闭</button>
+      </div>
+
+
+    </div>
+
+    <!-- 遮盖层 -->
+    <div id="bg" class="bg">sada</div>
+
+  </header>
+
+  <section id="education">
+    <div class="section-title">
+      教育背景
+    </div>
+
+    <div class="section-content">
+      <div class="block">
+        <div class="block-title">
+          本科学校
+        </div>
+        <div class="block-subtitle">
+          2020.9-2024.6
+        </div>
+        <div class="block-content">
+          中南大学
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-title">
+          主修专业
+        </div>
+        <div class="block-content" id="specialty">
+          物联网工程
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-title">
+      个人经历
+    </div>
+    <div class="section-content">
+      <div class="block">
+        <div class="block-title">
+          个人兴趣
+        </div>
+        <div class="block-content">
+          待补充……
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-title">
+          证书
+        </div>
+        <div class="block-subtitle">
+          2020.9-2022.10
+        </div>
+        <div class="block-content">
+          <ul>
+            <li> 军训优秀个人</li>
+            <li> 辩论赛团队奖（第三名）</li>
+            <li> 优秀共青团员</li>
+            <li> 优秀学生代表</li>
+            <li> 净滩志愿者证书</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="project">
+    <div class="section-title">
+      项目经历
+    </div>
+    <script type="text/javascript">
+      var index = localStorage.key("itemindex");
+      index = parseInt(localStorage.getItem("itemindex"));
+      // localStorage.setItem("itemindex",1);
+      console.log(index);
+    </script>
+    <div class="section-content">
+      <button class="editbtn" type="button" id="addBtn0" value="添加"  onclick="addPro()" style="display: none">添加</button>
+      <div class="block">
+        <div class="block-title">
+          基于计算机视觉的垃圾分类系统
+        </div>
+        <div class="block-subtitle">
+          主要负责人
+        </div>
+        <div class="block-content">
+          <ul>
+            <li> 项目来源：服务外包创新创业大赛</li>
+            <li> 训练模型框架：paddle</li>
+            <li> 训练模型：MobileNetV3</li>
+            <li> 主要负责：主要负责组建队伍、进度安排、垃圾分类模型训练。</li>
+          </ul>
+        </div>
+      </div>
+
+      <button class="editbtn" type="button" id="showBtn" value="显示全部"  onclick="insertPro();">显示全部</button>
+
+      <div class="block" id="thisblock0">
+        <div class="block-title" id="thistitle0">
+          Deepfake 检测
+        </div>
+        <div class="block-subtitle" id="thissubtitle0">
+          参与者
+        </div>
+        <div class="block-content" id="thiscontext0">
+          待补充……
+        </div>
+        <div class="editBtns" id="editBtns0" style="display: none">
+          <button class="editbtn" type="button" id="deleteBtn0" value="删除" data-index="0" onclick="delPro(event)" >删除</button>
+          <button class="editbtn" type="button" id="changeBtn0" value="修改" data-index="0" onclick="savePro(event)">修改</button>
+        </div>
+      </div>
+      <div class="newblock" >
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <section id="skills">
+    <div class="section-title">
+      能力
+    </div>
+    <div class="section-content">
+
+      <div class="block">
+        <div class="block-title">
+          语言
+        </div>
+        <div class="block-subtitle">
+          熟悉C、C++、python、Java
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-title">
+          开发工具
+        </div>
+        <div class="block-subtitle">
+          了解使用Qt、Pycharm、Eclipse等开发工具
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-title">
+          数据库
+        </div>
+        <div class="block-subtitle">
+          熟悉SQL Sever操作
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-title">
+          具备基础学科知识
+        </div>
+        <div class="block-subtitle">
+          操作系统、计算机组成原理、计算机网络
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+
+<footer>
+  © 2022
+  <a href="" target="_blank" rel="noopener">
+    Sun Xiting
+  </a>
+
+  <div class="visit-times">
+    <script defer>
+      if (localStorage.sum) {
+        localStorage.sum = Number(localStorage.sum) + 1;
+      }
+      else {
+        localStorage.sum = 1;
+      }
+      document.write("访问网站的次数:" + localStorage.sum);
+    </script>
+  </div>
+</footer>
+
+</body>
+</html>

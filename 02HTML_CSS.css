@@ -1,0 +1,316 @@
+html {
+    width: 100%;
+    font-size: 20px;
+    background-color: #FFF5E4;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    text-align: center;
+    width: 100%;
+    font-family: system-ui,"Noto Sans", "Segoe UI", Roboto, Helvetica, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+    font-size: 1rem;
+    color: #495057;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 2px dashed #adb5bd
+}
+
+@media print {
+    html {
+        font-size: 12px;
+    }
+
+    .print {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
+}
+
+.container {
+    text-align: left;
+}
+
+header {
+    background-color: #FFE3E1;
+    display: inline-grid;
+    grid-template-columns: 2fr 5fr 3fr;
+    grid-template-rows: 2fr, 3fr;
+    /* border-bottom: 0.1rem solid #adb5bd; */
+
+    grid-template-areas:
+        "author-img name-wrapper weather-show"
+        "author-img  contact  login-header ";
+}
+
+.name-wrapper {
+    grid-area: name-wrapper;
+    margin: 8px;
+    border: 8px;
+    padding: 8px;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.weather-show {
+    grid-area: weather-show;
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    background-color: #035E8B
+}
+
+.weather-item {
+    display: inline-grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    color:white;
+}
+
+.title {
+    font-size: 2rem;
+    margin-top: .8rem;
+}
+
+.sub-title {
+    font-size: 1rem;
+    margin-top: 1.8rem;
+}
+.contact {
+    padding:5px;
+    text-align: center;
+    grid-area: contact;
+    font-size: 1rem;
+    display: inline-grid;
+    grid-template-columns: 20% 30%;
+    grid-template-rows: 1fr 1fr;
+    background-color: #FFD1D1
+}
+
+
+.contact-item {
+    margin-top: 0rem;
+}
+
+
+.portrait {
+    text-align: right;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+.author-img {
+    grid-area: author-img;
+    max-width: 100%;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+.weather-img {
+    max-width: 100%;
+    height: auto;
+    width: 5rem;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+section {
+    margin: 8px;
+    border: 8px;
+    padding:8px;
+    display: inline-table;
+    width: 100%;
+    hyphens: auto;
+    background-color: #FFF7E9
+}
+
+
+.section-title {
+    font-weight: bolder;
+    text-align: left;
+    text-transform: uppercase;
+    border-bottom: 0.1rem solid #adb5bd;
+    font-size: 1.2rem;
+    min-width: 10rem;
+}
+
+.section-content {
+    padding: 0 40px 0 0px;
+}
+
+.block {
+    margin-top: .2rem;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: 1fr auto;
+}
+
+.block:last-child {
+    margin-bottom: 0;
+}
+
+.block-title {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.block-subtitle {
+    font-weight: bold;
+    font-size: .8rem;
+    text-align: end;
+}
+
+.block-content {
+    font-size: .9rem;
+    line-height: 1.5;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.newblock{
+    margin-top: 25px;
+}
+
+.editbtn{
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid gray;
+    background-color: #FF9494;
+    border-radius: 8px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    margin-left: 0px;
+}
+
+footer {
+    color: white;
+    line-height: 1.5rem;
+    font-size: 1rem;
+    min-height: 3rem;
+    line-height: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #FF9494
+}
+
+
+/* 弹出登录框按钮 */
+#login-header {
+    grid-area: login-header;
+    background-color: #FFD1D1;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px; /*垂直居中关键*/
+}
+/* 登陆框主体 */
+.login {
+    position: absolute;
+    width: 512px;
+    height: 284px;
+    z-index: 9999;
+    padding: 20px;
+    background-color: #FFF5E4;
+    /*一开始不显示*/
+    display: none;
+    /* 这里要注意绝对定位的盒子怎么在屏幕显示居中 */
+    left: 50%;
+    margin-left: -256px;
+    margin-top: 142px;
+    border: 1px solid gray;
+    border-radius: 8px;
+}
+/* 登陆框标题 */
+.login-title {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+    cursor: move;
+}
+
+/* 登陆表单 */
+.login-input {
+    margin: 20px 0px 30px 0px;
+}
+
+.login-input label {
+    float: left;
+    height: 35px;
+    line-height: 35px;
+    width: 90px;
+    padding-left: 10px;
+    text-align: right;
+    font-size: 14px;
+}
+
+.list-input {
+    height: 35px;
+    line-height: 35px;
+    width: 350px;
+    text-indent: 5px;
+}
+
+/* 登陆框登陆按钮 */
+.loginSubmit {
+    width: 160px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid gray;
+    background-color: #FF9494;
+    border-radius: 8px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    margin-left: 70px;
+}
+
+#closeBtn {
+    width: 160px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid gray;
+    background-color: #FF9494;
+    border-radius: 8px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin-left: 20px;
+}
+
+/* 遮盖层 */
+.bg {
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    position: fixed;
+    opacity: 0.3;
+    -webkit-opacity: 0.3;
+    -moz-opacity: 0.3;
+    display: none;
+}
+
+/* 两个按钮布局的设置 */
+.Btns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    }
